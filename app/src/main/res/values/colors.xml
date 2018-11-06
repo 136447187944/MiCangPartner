@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AAAAAA</color><!--状态栏-->
+    <color name="colorPrimaryDark">#AAAAAA</color><!--标题栏-->
+    <color name="colorAccent">#6982FF</color>
+    <color name="welcome_background_black">#000</color>
+</resources>
