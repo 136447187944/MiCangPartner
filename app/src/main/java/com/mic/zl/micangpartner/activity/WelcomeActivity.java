@@ -15,9 +15,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.mic.zl.micangpartner.R;
 
-public class LoginPreviewAnimationActivity extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
     private ImageView bg_imageView;//背景
     private TextView  version_tv;//版本号
     private SharedPreferences sp;
@@ -35,11 +36,11 @@ public class LoginPreviewAnimationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);//设置没有标题
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);//设置为全屏
-        setContentView(R.layout.activity_login_preview_animation);
+          setContentView(R.layout.activity_welcome);
         init();
     }
     private void init(){
-        sp=getSharedPreferences("mcParter",MODE_PRIVATE);
+        sp=getSharedPreferences("mcPartner",MODE_PRIVATE);
         /**显示版本号*/
         version_tv=findViewById(R.id.version_tv);//版本号
         try {
@@ -52,7 +53,7 @@ public class LoginPreviewAnimationActivity extends AppCompatActivity {
 
         /**进入时的动画*/
         bg_imageView=findViewById(R.id.bg_iv);
-        Animation animation=AnimationUtils.loadAnimation(LoginPreviewAnimationActivity.this,R.anim.alpha);//加载淡出动画
+        Animation animation=AnimationUtils.loadAnimation(WelcomeActivity.this,R.anim.alpha);//加载淡出动画
         bg_imageView.startAnimation(animation);//启动动画
         /*添加动画监听器*/
         animation.setAnimationListener(new Animation.AnimationListener() {
@@ -92,16 +93,16 @@ public class LoginPreviewAnimationActivity extends AppCompatActivity {
             values="No";
             editor.putString(key,values);
             editor.commit();
-            Intent intent=new Intent(LoginPreviewAnimationActivity.this,GuidesActivity.class);
+            Intent intent=new Intent(WelcomeActivity.this,GuidesActivity.class);
             startActivity(intent);
             finish();
         }else{
             if (sp.getString("isLogin","").equals("1")){//判断是否已经登陆过了，是进入主界面
-                Intent intent=new Intent(LoginPreviewAnimationActivity.this,MainActivity.class);
+                Intent intent=new Intent(WelcomeActivity.this,MainActivity.class);
                 startActivity(intent);
                 finish();
             }else {
-                Intent intent=new Intent(LoginPreviewAnimationActivity.this,LoginActivity.class);
+                Intent intent=new Intent(WelcomeActivity.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -109,7 +110,7 @@ public class LoginPreviewAnimationActivity extends AppCompatActivity {
     }
 
     private void getPermission() {
-        ActivityCompat.requestPermissions(LoginPreviewAnimationActivity.this,permissions,1);
+        ActivityCompat.requestPermissions(WelcomeActivity.this,permissions,1);
     }
 
     @Override

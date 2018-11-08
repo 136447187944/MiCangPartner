@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="guide_first" type="id"/>
+    <item name="guide_two" type="id"/>
+    <item name="guide_three" type="id"/>
+    <item name="guide_four" type="id"/>
+    <item name="dot_first" type="id"/>
+    <item name="dot_two" type="id"/>
+    <item name="dot_three" type="id"/>
+    <item name="dot_four" type="id"/>
+</resources>

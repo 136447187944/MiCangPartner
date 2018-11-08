@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.LoginPreviewAnimationActivity">
+    tools:context=".activity.WelcomeActivity">
     <LinearLayout
         android:layout_marginTop="120dp"
         android:gravity="center"
@@ -13,21 +13,21 @@
         android:layout_height="wrap_content">
         <ImageView
             android:src="@mipmap/ic_launcher"
-            android:layout_width="@dimen/width_60dp"
-            android:layout_height="@dimen/width_60dp" />
+            android:layout_width="@dimen/_60dp"
+            android:layout_height="@dimen/_60dp" />
         <ImageView
             android:src="@mipmap/text_img"
-            android:layout_width="@dimen/width_120dp"
+            android:layout_width="@dimen/_120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
     </LinearLayout>
     <!--版本号-->
     <TextView
         android:id="@+id/version_tv"
-        android:textSize="@dimen/text_size_15sp"
+        android:textSize="@dimen/_15sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/marginBottom_20dp"
+        android:layout_marginBottom="@dimen/_20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <!--淡出动画-->

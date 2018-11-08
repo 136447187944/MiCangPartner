@@ -1,10 +1,48 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="_60dp_15sp" parent="_15sp">
+        <item name="android:layout_marginLeft">@dimen/_45dp</item>
+        <item name="android:layout_marginRight">@dimen/_45dp</item>
+    </style>
+
+    <style name="_15sp">
+        <item name="android:textSize">@dimen/_15sp</item>
+        <item name="android:textColor"></item>
+    </style>
+
+    <!--浅紫色-->
+    <style name="shallow_purple">
+        <item name="android:textColor">@color/colorAccent</item>
+    </style>
+
+    <style name="gray">
+        <item name="android:textColor">@color/gray</item>
+    </style>
+    <!--字体大小15sp-->
+    <style name="font_15sp">
+        <item name="android:textSize">@dimen/_15sp</item>
+    </style>
+    <style name="_marginTop_20dp" parent="_60dp_15sp">
+        <item name="android:layout_marginTop">@dimen/_20dp</item>
+    </style>
+    <style name="gravity_center">
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="_15sp_1" parent="shallow_purple">
+        <item name="android:layout_marginTop">@dimen/_12dp</item>
+        <item name="android:paddingRight">@dimen/_5dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="title_style" parent="font_15sp">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_centerInParent">true</item>
     </style>
 </resources>

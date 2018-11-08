@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.LoginActivity">
-     <ImageView
-         android:adjustViewBounds="true"
-         android:src="@mipmap/login_img"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content" />
+    android:background="@color/shallow_gray"
+    tools:context=".activity.ForgotActivity">
+
+    <include layout="@layout/title_ber" />
+
+    <com.mic.zl.micangpartner.view.CircleImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20dp"
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:src="@mipmap/ic_launcher"/>
     <LinearLayout
         style="@style/_marginTop_20dp"
         android:layout_width="match_parent"
@@ -21,34 +27,14 @@
             android:layout_height="wrap_content" />
         <EditText
             style="@style/font_15sp"
-            android:id="@+id/username_et"
+            android:id="@+id/forgot_username_et"
             android:inputType="number"
-            android:maxEms="11"
             android:hint="@string/input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
-        style="@style/_60dp_15sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            style="@style/gravity_center"
-            android:src="@mipmap/lock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <EditText
-            style="@style/font_15sp"
-            android:id="@+id/password_et"
-            android:hint="@string/input_pwd"
-            android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-     <!--若账号在新设备上登录,需要验证码,将其显示-->
-    <LinearLayout
         android:id="@+id/test_ll"
-        android:visibility="gone"
         style="@style/_60dp_15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -66,13 +52,13 @@
                 android:layout_height="wrap_content">
                 <EditText
                     android:hint="@string/input_test_code"
-                    android:id="@+id/test_code"
+                    android:id="@+id/forgot_test_code_et"
                     android:inputType="number"
                     style="@style/font_15sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/request_test_code"
+                    android:id="@+id/forgot_request_test_code"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/_15sp_1"
@@ -80,48 +66,48 @@
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
-
+    <LinearLayout
+        style="@style/_60dp_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/gravity_center"
+            android:src="@mipmap/password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            style="@style/font_15sp"
+            android:id="@+id/forgot_input_pwd_et"
+            android:hint="@string/input_pwd"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/_60dp_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/gravity_center"
+            android:src="@mipmap/lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <EditText
+            style="@style/font_15sp"
+            android:id="@+id/forgot_password_et"
+            android:hint="@string/input_pwd_again"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <TextView
-        android:id="@+id/login_tv"
+        android:id="@+id/forgot_submit_tv"
         android:layout_marginTop="@dimen/_20dp"
         android:background="@drawable/login_selector"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45dp"
         style="@style/_60dp_15sp"
         android:gravity="center"
-        android:text="@string/login"
+        android:text="@string/submit"
         android:textColor="@color/white" />
-    <LinearLayout
-        style="@style/_60dp_15sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <CheckBox
-            android:id="@+id/remember_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/remember_pwd"
-            style="@style/gray"
-            android:layout_weight="1"/>
-        <TextView
-            android:id="@+id/forgot_pwd"
-            android:textColor="@color/colorAccent"
-            android:text="@string/forgot_pwd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:gravity="center|bottom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/register_tv"
-            android:textSize="@dimen/_15sp"
-            android:paddingTop="@dimen/_60dp"
-            android:paddingBottom="@dimen/_20dp"
-            android:textColor="@color/colorAccent"
-            android:text="@string/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
 </LinearLayout>

@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mic.zl.micangpartner">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
         android:name="android.hardware.camera2"
@@ -27,7 +28,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".activity.LoginPreviewAnimationActivity" >
+        <activity android:name=".activity.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,6 +39,14 @@
         <activity android:name=".activity.GuidesActivity" >
         </activity>
         <activity android:name=".activity.MainActivity" >
+        </activity>
+        <activity android:name=".activity.Register1Activity" >
+        </activity>
+        <activity android:name=".activity.Register2Activity" >
+        </activity>
+        <activity android:name=".activity.ForgotActivity" >
+        </activity>
+        <activity android:name=".activity.IndexActivity" >
         </activity>
     </application>
 
