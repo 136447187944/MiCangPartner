@@ -26,7 +26,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONException;
 import com.alibaba.fastjson.JSONObject;
 import com.mic.zl.micangpartner.R;
+import com.mic.zl.micangpartner.dialog.MyDialog;
 import com.mic.zl.micangpartner.util.Constants;
+import com.mic.zl.micangpartner.util.FormatTool;
 import com.mic.zl.micangpartner.util.GetDeviceId;
 import com.mic.zl.micangpartner.util.MD5Util;
 import java.io.IOException;
@@ -51,7 +53,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Intent intent;
     private String phoneId;
     private ProgressDialog progressDialog;
-    private AlertDialog.Builder alertDialog;
     private LoginAsyncTask loginAsyncTask;
     private  RequestBody body;
     private Request request;
@@ -88,7 +89,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         testLayout=findViewById(R.id.test_ll);//验证Layout布局
         testCode_et=findViewById(R.id.test_code);//获取输入的验证码
         requestTestCode_tv=findViewById(R.id.request_test_code);//请求验证码
-        alertDialog = new AlertDialog.Builder(LoginActivity.this);//实例化提示对话框对象
         progressDialog=new ProgressDialog(LoginActivity.this);//实例化等待对话框对象
 
         /*使控件显示数据*/
@@ -168,16 +168,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //&&还具有短路的功能，即如果第一个表达式为false
         if (userName.equals("")){
-            Toast.makeText(LoginActivity.this,"账号不能为空",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,R.string.username_not_empty,Toast.LENGTH_SHORT).show();//username is not empty
+            return;
+        }
+        if (!FormatTool.testPhone(userName)){
+            Toast.makeText(LoginActivity.this,R.string.input_right_phone,Toast.LENGTH_SHORT).show();//the password is not empty
             return;
         }
         if (passWord.equals("")){
-            Toast.makeText(LoginActivity.this,"密码不能为空",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,R.string.pwd_not_empty,Toast.LENGTH_SHORT).show();//the password is not empty
             return;
         }
 
         if (phoneId.equals("")){
-            Toast.makeText(LoginActivity.this," 设置ID不能为空(IMES)",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,R.string.equipment_not_empty,Toast.LENGTH_SHORT).show();//the equipment is  not empty
             return;
         }
 
@@ -185,20 +189,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         * 对密码进行MD5加密
         * 自己去研究加密方法
         * */
-        //http://121.201.66.138:8867/McangPartner/user.do?
-
         loginAsyncTask=new LoginAsyncTask();
         if (testLayout.getVisibility()==View.GONE){
-            // action=login
-            // &username=13647187944
-            // &password=5FF7F42695637EE98EE63114566D605B
             loginAsyncTask.execute(userName,MD5Util.MD5Encode(passWord,"utf-8"),phoneId);
         }else {
-            //http://121.201.66.138:8867/McangPartner/user.do?
-            // action=loginAndChange
-            // &phone=13647187944
-            // &phoneId=e7487acf56ea1e3392cf3f028638947f
-            // &smsCode=1798
             loginAsyncTask.execute(userName,phoneId,testCode_et.getText().toString());
         }
     }
@@ -213,17 +207,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             progressDialog.setIndeterminate(true);
             progressDialog.show();
         }
-        //http://121.201.66.138:8867/McangPartner/user.do?
-        // action=login
-        // &username=13647187944
-        // &password=5FF7F42695637EE98EE63114566D605B
-        // &phoneId=e7487acf56ea1e3392cf3f028638946f
 
-        //http://121.201.66.138:8867/McangPartner/user.do?
-        // action=loginAndChange
-        // &phone=13647187944
-        // &phoneId=e7487acf56ea1e3392cf3f028638947f
-        // &smsCode=1798
         @Override
         protected String doInBackground(String... params) {
             OkHttpClient okHttpClient=new OkHttpClient();
@@ -268,7 +252,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
             JSONObject object = JSON.parseObject(s);
             try {
-                if (object.getString("result").equals("登录成功")) {
+                if (object.getString(getResources().getString(R.string.result)).equals(getResources().getString(R.string.username_login_success))) {
                     editor.putString("isLogin", "1");
                     editor.putString("username", userName);
                     editor.putString("password", passWord);
@@ -291,15 +275,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     finish();
                     return;
                 } else {
-                    alertDialog.setTitle("提示");
-                    if (object.getString("result").equals("设备不匹配")) {
-                        alertDialog.setMessage("检测到您在新设备上登录，是否重新登录？");
+                    MyDialog dialog=new MyDialog(LoginActivity.this,null);
+                    dialog.setTitle(R.string.hint);
+                    if (object.getString(getResources().getString(R.string.result)).equals(getResources().getString(R.string.equipment_not_identical))) {
+                        dialog.setMessage(getResources().getString(R.string.equipment_not_identical_hint));//设备不不匹配提示信息
                         testLayout.setVisibility(View.VISIBLE);//设置显示控件
                     } else {
-                        alertDialog.setMessage(object.getString("result"));
+                        dialog.setMessage(object.getString(getResources().getString(R.string.result)));
                     }
-                    alertDialog.setPositiveButton("确定", null);
-                    alertDialog.create().show();
+                    dialog.setNegativeName(getResources().getString(R.string.confirm));
+                    dialog.create();
+                    dialog.show();
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -313,7 +299,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         // &phoneNum=13647187944
         String phone=userName_et.getText().toString().trim();
         if (phone.equals("")){
-            Toast.makeText(LoginActivity.this,"手机号不能为空",Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this,R.string.pwd_not_empty,Toast.LENGTH_SHORT).show();
             return;
         }
         setTime();
@@ -363,7 +349,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (message.what==1){
                 int i= (int) message.obj;//保存返回的值
                 if (i==0){
-                    requestTestCode_tv.setText("重新获取");
+                    requestTestCode_tv.setText(R.string.test_code_request_again);//重新获取
                     requestTestCode_tv.setClickable(true);//让TextView可点击
                 }else{
                     requestTestCode_tv.setText(i+"s");
@@ -373,4 +359,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return false;
         }
     });
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (loginAsyncTask!=null&&loginAsyncTask.getStatus()==AsyncTask.Status.RUNNING){
+            loginAsyncTask.cancel(true);
+        }
+    }
 }

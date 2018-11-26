@@ -1,10 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.Register1Activity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/title_ber" />
+
+    <com.mic.zl.micangpartner.view.CircleImageView
+        android:layout_width="@dimen/_80dp"
+        android:layout_height="@dimen/_80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_20dp"
+        android:src="@mipmap/ic_launcher" />
+    <ImageView
+        android:layout_margin="@dimen/_20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/point1_img"/>
+    <LinearLayout
+        style="@style/_60dp_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/gravity_center"
+            android:src="@mipmap/user_1"/>
+        <EditText
+            style="@style/_12sp"
+            android:id="@+id/register_username_et"
+            android:inputType="text"
+            android:hint="@string/edit_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/_60dp_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/gravity_center"
+            android:src="@mipmap/phone"/>
+        <EditText
+            android:id="@+id/register_phone_et"
+            android:inputType="number"
+            style="@style/_12sp"
+            android:hint="@string/username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        style="@style/_60dp_15sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            style="@style/gravity_center"
+            android:src="@mipmap/test_code"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/register_code_et"
+                android:inputType="text"
+                style="@style/_12sp"
+                android:hint="@string/test_code_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/test_code_tv"
+                android:textSize="@dimen/_12sp"
+                style="@style/_15sp_1"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView
+
+        android:id="@+id/next_step_tv"
+        android:layout_marginTop="@dimen/_20dp"
+        android:background="@drawable/login_selector"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45dp"
+        android:textSize="@dimen/_15sp"
+        style="@style/_60dp_15sp"
+        android:gravity="center"
+        android:text="@string/next_step"
+        android:textColor="@color/white" />
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/immediate_login_tv"
+            android:layout_gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_15sp"
+            android:paddingBottom="@dimen/_20dp"
+            android:text="@string/immediate_login"/>
+    </LinearLayout>
+
+
+
+</LinearLayout>

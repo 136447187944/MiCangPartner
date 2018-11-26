@@ -1,6 +1,7 @@
 package com.mic.zl.micangpartner.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -40,7 +41,7 @@ public class WelcomeActivity extends AppCompatActivity {
         init();
     }
     private void init(){
-        sp=getSharedPreferences("mcPartner",MODE_PRIVATE);
+        sp=getSharedPreferences("mcPartner",Activity.MODE_PRIVATE);
         /**显示版本号*/
         version_tv=findViewById(R.id.version_tv);//版本号
         try {

@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#AAAAAA</color><!--标题栏-->
     <color name="colorAccent">#6982FF</color>
     <color name="welcome_background_black">#000</color>
+    <color name="black">#000</color>
     <color name="shallow_purple">#8697ea</color>
     <color name="white">#fff</color>#DEDEDE
     <color name="gray">#8c8a8a</color>

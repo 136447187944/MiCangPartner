@@ -10,10 +10,9 @@
         android:layout_height="wrap_content">
         <Button
             android:layout_weight="1"
-            android:id="@+id/forgot"
+            android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/forgot_pwd"
             />
         <Button
             android:layout_weight="1"

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:background="@color/white"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <RelativeLayout
+        android:background="@drawable/layout_bottom_border"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45dp">
             <ImageView
-                android:id="@+id/forgot_back"
+                android:id="@+id/back_iv"
                 android:src="@mipmap/back"
-                android:paddingRight="@dimen/_10dp"
+                android:paddingRight="@dimen/_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent" />
             <TextView
                 android:id="@+id/title_tv"
+                android:textSize="@dimen/_17sp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/title_style" />

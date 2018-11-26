@@ -20,11 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText
-            style="@style/font_15sp"
+            style="@style/_12sp"
             android:id="@+id/username_et"
             android:inputType="number"
-            android:maxEms="11"
-            android:hint="@string/input_name"
+            android:hint="@string/username_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -38,9 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <EditText
-            style="@style/font_15sp"
+            style="@style/_12sp"
             android:id="@+id/password_et"
-            android:hint="@string/input_pwd"
+            android:hint="@string/pwd_input"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -65,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:hint="@string/input_test_code"
+                    android:hint="@string/test_code_input"
                     android:id="@+id/test_code"
                     android:inputType="number"
                     style="@style/font_15sp"
@@ -89,6 +88,7 @@
         android:layout_height="@dimen/_45dp"
         style="@style/_60dp_15sp"
         android:gravity="center"
+        android:textSize="@dimen/_15sp"
         android:text="@string/login"
         android:textColor="@color/white" />
     <LinearLayout
@@ -99,13 +99,13 @@
             android:id="@+id/remember_pwd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/remember_pwd"
+            android:text="@string/pwd_remember"
             style="@style/gray"
             android:layout_weight="1"/>
         <TextView
             android:id="@+id/forgot_pwd"
             android:textColor="@color/colorAccent"
-            android:text="@string/forgot_pwd"
+            android:text="@string/pwd_forgot"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
@@ -119,7 +119,7 @@
             android:paddingTop="@dimen/_60dp"
             android:paddingBottom="@dimen/_20dp"
             android:textColor="@color/colorAccent"
-            android:text="@string/register"
+            android:text="@string/username_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
