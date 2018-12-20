@@ -1,7 +1,6 @@
 package com.mic.zl.micangpartner.task;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -12,9 +11,11 @@ import com.alibaba.fastjson.JSONObject;
 import com.mic.zl.micangpartner.dialog.MyDialog;
 import com.mic.zl.micangpartner.util.Constants;
 
-import org.w3c.dom.Text;
 
 import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -27,6 +28,7 @@ public class CheckUpdateAsyncTask extends AsyncTask<String,Void,String> {
     private SharedPreferences.Editor editor;
     private Context context;
     private MyDialog myDialog;
+    private String result;
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
@@ -47,27 +49,29 @@ public class CheckUpdateAsyncTask extends AsyncTask<String,Void,String> {
                 .add("appType","android")
                 .build();
         Request request=new Request.Builder().url(url).post(requestBody).build();
-        String result;
-        try {
-         Response response=client.newCall(request).execute();
-         if (!response.isSuccessful()){
-             result=Constants.CONNECT_FAIL;
-         }else result=response.body().string();
-        } catch (IOException e) {
-            result=Constants.CONNECT_FAIL;
-        }
+        client.newCall(request).enqueue(new Callback() {
+             @Override
+             public void onFailure(Call call, IOException e) {
+                 result=Constants.CONNECT_FAIL;
+             }
+
+             @Override
+             public void onResponse(Call call, Response response) throws IOException {
+                 result=response.body().string();
+             }
+         });
         return result;
     }
 
     @Override
-    protected void onPostExecute(String result) {
+    protected void onPostExecute(String s) {
         super.onPostExecute(result);
         if (Constants.CONNECT_FAIL.equals(result)){
             Toast.makeText(context,Constants.CONNECT_FAIL,Toast.LENGTH_SHORT).show();
             return;
         }
         JSONObject object=JSON.parseObject(result);
-        final String notify=object.getString("notify");;
+        String notify=object.getString("notify");
         if (object.getString("result").equals("获取成功")){
             if (!"".equals(notify)&&!TextUtils.isEmpty(notify)){
                     if (!sp.getBoolean(notify,false)){

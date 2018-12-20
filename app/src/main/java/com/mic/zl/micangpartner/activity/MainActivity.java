@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -12,7 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import com.mic.zl.micangpartner.R;
 import com.mic.zl.micangpartner.fragment.HomeFragment;
 import com.mic.zl.micangpartner.fragment.MineFragment;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Fragment fragment;
     private FragmentTransaction ft;
     private List<AsyncTask> listTask;
+    //private MyDialog dialog;
+    private long exitTime=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,6 +155,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .show(fragment)
                 .commit();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            exit();
+            return true;
+        }
+        return false;
+    }
+
+    private void exit(){
+        if (System.currentTimeMillis()-exitTime>2000){
+            Toast.makeText(MainActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+            exitTime= System.currentTimeMillis();
+        }else {
+            finish();
+            System.exit(0);
+        }
+    }
+
+   /* @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==KeyEvent.KEYCODE_BACK){
+            dialog=new MyDialog(MainActivity.this, new MyDialog.OnCloseListener() {
+                @Override
+                public void onClick(Dialog dialog, boolean confirm) {
+                    if (confirm){
+                        finish();
+                    }
+                }
+            });
+            dialog.setTitle("提示");
+            dialog.setMessage("确定要退出程序吗？");
+            dialog.setNegativeName("取消");
+            dialog.setPositiveName("确定");
+            dialog.show();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }*/
 
     @Override
     protected void onDestroy() {

@@ -52,8 +52,12 @@ public class WelcomeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        /**进入时的动画*/
-        bg_imageView=findViewById(R.id.bg_iv);
+        /**进入时的动画
+         * 第一步：创建淡出动画,消失时间为Activity的生命时间
+         * 第二步：添加动画监听事件
+         * 第三步：在动画完成方法onAnimationEnd()中编写相应的业务逻辑
+         * */
+        bg_imageView=findViewById(R.id.bg_iv);//最外层遮罩层
         Animation animation=AnimationUtils.loadAnimation(WelcomeActivity.this,R.anim.alpha);//加载淡出动画
         bg_imageView.startAnimation(animation);//启动动画
         /*添加动画监听器*/
@@ -76,7 +80,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
             }
         });
-        bg_imageView.setAnimation(animation);
+        bg_imageView.setAnimation(animation);//为遮罩层设置动画
     }
 
     /**逻辑：首先判断是不是第一次打开，若是进入GuidesActivity，
@@ -111,7 +115,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void getPermission() {
-        ActivityCompat.requestPermissions(WelcomeActivity.this,permissions,1);
+        ActivityCompat.requestPermissions(WelcomeActivity.this,permissions,1);//获取权限
     }
 
     @Override

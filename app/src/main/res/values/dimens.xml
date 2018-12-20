@@ -13,8 +13,10 @@
     <dimen name="_55dp">55dp</dimen>
     <dimen name="_60dp">60dp</dimen>
     <dimen name="_80dp">80dp</dimen>
+    <dimen name="_108dp">108dp</dimen>
     <dimen name="_120dp">120dp</dimen>
     <dimen name="_140dp">140dp</dimen>
+    <dimen name="_150dp">150dp</dimen>
     <dimen name="_164dp">164dp</dimen>
     <dimen name="_178dp">178dp</dimen>
     <dimen name="_350dp">330dp</dimen>

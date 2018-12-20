@@ -28,41 +28,33 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".activity.WelcomeActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.GuidesActivity" />
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.Register1Activity" />
-        <activity android:name=".activity.Register2Activity" />
- >
-        <activity android:name=".activity.ForgotActivity" />
-        <activity android:name=".activity.IndexActivity" >
+        <activity android:name=".activity.WelcomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.GuidesActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.Register1Activity" />
+        <activity android:name=".activity.Register2Activity" />
+        <activity android:name=".activity.ForgotActivity" />
+        <activity android:name=".activity.IndexActivity" />
         <activity android:name=".activity.ProtocolActivity" />
-        <activity android:name=".activity.NotifyActivity" >
-        </activity>
-        <activity android:name=".activity.NotifyGetAllActivity" >
-        </activity>
-        <activity android:name=".activity.MyPartnerActivity" >
-        </activity>
-        <activity android:name=".activity.MachineExchangeActivity" >
-        </activity>
-        <activity android:name=".activity.CreditCardActivity" >
-        </activity>
-        <activity android:name=".activity.MyMerchantActivity" >
-        </activity>
-        <activity android:name=".activity.InvitePartnerActivity" >
-        </activity>
-        <activity android:name=".activity.PointsMallActivity" >
-        </activity>
-        <activity android:name=".activity.MyCreditActivity" >
-        </activity>
-        <activity android:name=".activity.LoanActivity" >
+        <activity android:name=".activity.NotifyActivity" />
+        <activity android:name=".activity.NotifyGetAllActivity" />
+        <activity android:name=".activity.MyPartnerActivity" />
+        <activity android:name=".activity.MachineExchangeActivity" />
+        <activity android:name=".activity.CreditCardActivity" />
+        <activity android:name=".activity.MyMerchantActivity" />
+        <activity android:name=".activity.InvitePartnerActivity" />
+        <activity android:name=".activity.PointsMallActivity" />
+        <activity android:name=".activity.MyCreditActivity" />
+        <activity android:name=".activity.LoanActivity" />
+        <activity android:name=".activity.MachineDetailActivity" />
+        <activity android:name=".activity.DetailActivity" >
         </activity>
     </application>
 

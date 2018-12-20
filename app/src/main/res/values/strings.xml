@@ -54,12 +54,18 @@
     <string name="equipment_not_empty">"设置ID不能为空(IMES)"</string>
 
     <!--机具兑换-->
-    <string name="machine_info_left1">极速秒到 费率0.65%+3</string>
+    <string name="machine_info_left">极速秒到</string>
+    <string name="machine_info_left1">费率0.65%+3</string>
     <string name="machine_info_left2">到账T+1</string>
     <string name="machine_info_left3">扫码费率 0.38%</string>
     <string name="machine_name_left">支付通</string>
-    <string name="machine_info_right1">信用卡 费率0.69%+3</string>
+    <string name="machine_info_right1">信用卡</string>
+    <string name="machine_info_right">费率0.69%+3</string>
     <string name="machine_info_right2">到账T+1</string>
     <string name="machine_info_right3">20元封顶</string>
     <string name="machine_name_right">海科融通传统POS机</string>
+
+    <string name="share_machine">分享购机获得奖金红包</string>
+    <string name="share_price">500元新手礼包等你来拿</string>
+    <string name="live">惠享生活</string>
 </resources>

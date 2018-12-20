@@ -10,4 +10,6 @@
     <color name="gray">#8c8a8a</color>
     <color name="organ">#FF9D02</color>
     <color name="shallow_gray">#DBDBDB</color>
+    <color name="red">#d92020</color>
+    <color name="green">#30ce30</color>
 </resources>

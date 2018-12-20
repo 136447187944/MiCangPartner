@@ -5,5 +5,4 @@
     <alpha
         android:fromAlpha="0.8"
         android:toAlpha="0.0"/>
-
 </set>

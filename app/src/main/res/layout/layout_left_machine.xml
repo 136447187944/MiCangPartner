@@ -5,6 +5,7 @@
     android:paddingBottom="@dimen/_10dp"
     android:layout_height="wrap_content">
     <RelativeLayout
+        android:id="@+id/machine_layout_left"
         android:layout_gravity="center"
         android:orientation="vertical"
         android:background="@mipmap/goods_zhifutong_bg"
@@ -19,7 +20,14 @@
                 style="@style/machine_exchange_image"
                 android:src="@mipmap/goods_msg_zft1"/>
             <TextView
-                android:id="@+id/goods_info_tv_left1"
+                android:id="@+id/goods_info_tv_left"
+                style="@style/machine_exchange_text"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/machine_info_left"/>
+            <TextView
+                android:id="@+id/goods_info_left_tv"
                 style="@style/machine_exchange_text"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"

@@ -13,6 +13,7 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -219,6 +220,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         .add("password",params[1])
                         .add("phoneId",params[2])
                         .build();
+                Log.d("Tag","username:"+params[0]);
+                Log.d("Tag","password:"+params[1]);
+                Log.d("Tag","phoneId:"+params[2]);
             }else {
                 body=new FormBody.Builder()
                          .add("action","loginAndChange")
